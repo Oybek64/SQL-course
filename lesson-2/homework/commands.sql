@@ -26,8 +26,8 @@
   Rollback: Cannot be undone (in most systems).
   Structure remains: Table is gone.
 
-6. 
-
+6. ALTER TABLE EMPLOYEES
+   ALTER COLUMN NAME VARCHAR(100);
 
 7. ALTER TABLE EMPLOYEES
    ADD COLUMN DEPARTMENT VARCHAR(100);
@@ -72,4 +72,36 @@
 18. ALTER TABLE PRODUCTS
     ADD CONSTRAINT CHK_PRICE CHECK (PRICE > 0);
 
-19. 
+19. ALTER TABLE PRODUCTS 
+    ADD COLUMN STOCK_QUANTITY INT DEFAULT 50; 
+  
+20. EXEC SP_RENAME 'PRODUCTS.CATEGORY', 'PRODUCTCATEGORY', 'COLUMN';
+  
+21. INSERT INTO PRODUCTS (PRODUCTID, PRODUCTNAME, PRODUCTCATEGORY, PRICE) 
+    VALUES (1, 'PEN', 'STATIONERY', '10'),
+           (2, 'PENCIL', 'STATIONERY', '15'),
+           (3, 'LAPTOP', 'ELECTRONICS', '500'),
+           (4, 'CELLPHONE', 'ELECTRONICS', '300'),
+           (5, 'SCREWDRIVER', 'TOOL', '12');
+
+ 22 SELECT * INTO Products_Backup
+    FROM Products;.  
+
+ 23. EXEC SP_RENAME 'PRODUCTS', 'INVENTORY';
+
+ 24. ALTER TABLE INVENTORY
+     ALTER COLUMN PRICE FLOAT; 
+
+25. CREATE TABLE Inventory_New (
+    ProductCode INT IDENTITY(1000,5) PRIMARY KEY,
+    PRODUCTName VARCHAR(100),
+    PRODUCTCategory VARCHAR(50),
+    Price FLOAT,
+    StockQuantity INT DEFAULT 50
+);
+
+INSERT INTO Inventory_New (PRODUCTName, PRODUCTCategory, Price, StockQuantity)
+SELECT ProductName, ProductCategory, Price, Stock_Quantity
+FROM Inventory;
+insert into Inventory_New (productname, PRODUCTCATEGORY, PRICE) VALUES ('GLASS', 'KITCHENWARE', '10');  
+
