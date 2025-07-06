@@ -5,7 +5,7 @@
    FROM EMPLOYEES;
 
 3. SELECT COUNT(*) AS NUMBER_OF_ROWS
-   FROM CUSTOMERS 
+   FROM CUSTOMERS; 
 
 4. SELECT DISTINCT Category 
    FROM Products;
@@ -48,10 +48,10 @@
     GROUP BY DepartmentName;
 
 13. SELECT DepartmentName, 
-			   MAX(Salary) AS THE_HIGHEST_SALARY,
-			   MIN(Salary) AS THE_LOWEST_SALARY
-		FROM EMPLOYEES
-		GROUP BY DepartmentName;
+		MAX(Salary) AS THE_HIGHEST_SALARY,
+	        MIN(Salary) AS THE_LOWEST_SALARY
+    FROM EMPLOYEES
+    GROUP BY DepartmentName;
 
 14. SELECT DepartmentName, AVG(Salary) AS AVG_SALARY
     FROM Employees
