@@ -53,8 +53,80 @@
 		FROM EMPLOYEES
 		GROUP BY DepartmentName;
 
-14. 
+14. SELECT DepartmentName, AVG(Salary) AS AVG_SALARY
+    FROM Employees
+    GROUP BY DepartmentName;
 
+15. SELECT DepartmentName, 
+           AVG(Salary) AS AVG_SALARY,
+	   COUNT(*) AS EMP_COUNT
+    FROM Employees
+    GROUP BY DepartmentName;
+
+16. SELECT * FROM Products
+    SELECT Category, 
+       AVG(Price) AS AVG_PRICE
+    FROM Products
+    GROUP BY Category
+    HAVING AVG(Price) > 400;
+
+17. SELECT YEAR(SaleDate) AS SaleYear, 
+            SUM(SaleAmount) AS TotalAmount
+    FROM Sales	
+    GROUP BY YEAR(SaleDATE)
+    ORDER BY SaleYear;
+
+18. SELECT CustomerID, 
+       COUNT(OrderID) AS ORDER_COUNT
+    FROM Orders
+    GROUP BY CustomerID
+    HAVING COUNT(OrderID) >= 3;
+
+19. SELECT DepartmentName, AVG(Salary) AS AVG_SALARY
+    FROM Employees
+    GROUP BY DepartmentName 
+    HAVING AVG(Salary) > 60000;
+
+20. SELECT Category, AVG(Price) AS AVG_PRICE
+    FROM Products
+    GROUP BY Category
+    HAVING AVG(Price) > 150;
+
+21. SELECT CustomerID, SUM(SaleAmount)
+    FROM Sales
+    GROUP BY CustomerID
+    HAVING SUM(SaleAmount) > 1500;
+
+22. SELECT DepartmentName, SUM(SALARY) AS Total, 
+	                   AVG(Salary) AS Avrg
+    FROM Employees
+    GROUP BY DepartmentName
+    HAVING AVG(Salary) > 65000;
+
+23.
+
+
+
+
+
+
+
+24. SELECT 
+     YEAR(OrderDate) AS Order_Year,
+	 MONTH(OrderDate) AS Order_Month,
+	 SUM(TotalAmount) AS Total_Sales,
+	 COUNT(DISTINCT ProductID) AS Unique_Products
+    FROM Orders
+    GROUP BY YEAR(OrderDate),
+	     MONTH(OrderDate)
+    HAVING  COUNT(DISTINCT ProductID) >= 2
+    ORDER BY Order_Year;
+
+25. SELECT YEAR(OrderDate) AS Order_Year,
+       MIN(Quantity) AS Min_Quantity,  
+	   MAX(Quantity) AS Max_Quantity
+    FROM Orders
+    GROUP BY YEAR(OrderDate)
 
 
 
