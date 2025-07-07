@@ -38,8 +38,9 @@
 	   GROUP BY DepartmentName
 	   HAVING COUNT(*) > 5;
 
-11.
-
+11. SELECT Productid, SUM(Saleamount), AVG(Saleamount)
+    FROM Sales
+    GROUP BY productid;
 
 
 12. SELECT DepartmentName,  COUNT(*) AS Total_Emp
