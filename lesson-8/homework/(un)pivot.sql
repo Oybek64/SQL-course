@@ -87,7 +87,15 @@
     GROUP BY Customerid
     ORDER BY TotalSpent DESC;
 
-20. 
+20. SELECT 
+    district_id,
+    district_name,
+    population,
+    year
+    FROM Population_Each_Year
+    UNPIVOT (
+    population FOR year IN ([2012], [2013])
+    ) AS UnpivotedData;
 
 21. SELECT 
     p.ProductName,
@@ -97,5 +105,12 @@
     GROUP BY p.ProductID, p.ProductName
     ORDER BY TimesSold DESC;
 
-22. 
+22. SELECT 
+    year,
+    district_name,
+    population
+    FROM Population_Each_City
+    UNPIVOT (
+    population FOR district_name IN ([Bektemir], [Chilonzor], [Yakkasaroy])
+    ) AS UnpivotedResult;
  
