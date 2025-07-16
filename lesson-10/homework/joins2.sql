@@ -77,8 +77,33 @@
     INNER JOIN Customers ON Orders.CustomerID = Orders.CustomerID
     WHERE YEAR(Orders.Orderdate) = 2022;
 
+16. SELECT Employees.Mame, Employees.Salary, Departments.DepartmentName
+    FROM Employees
+    INNER JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID
+    WHERE Departments.DepartmentName = 'Sales' AND Salary > 60000;
 
+17. SELECT Orders.OrderID, Orders.OrderDate, Payments.PaymentDate, Payments.Amount
+    FROM Orders
+    INNER JOIN Payments ON Orders.OrderID = Payments.OrderID;
 
+18. SELECT Products.ProductID, Products.PRODUCTNAME 
+    FROM Products
+    LEFT JOIN ORDERS ON ORDERS.PRODUCTID = Products.PRODUCTID
+    WHERE ORDERS.orderid IS NULL
+
+19. SELECT 
+    E.Name AS EmployeeName,
+    E.Salary
+    FROM 
+    Employees E
+    WHERE 
+    E.Salary > (
+        SELECT AVG(Salary)
+        FROM Employees
+        WHERE DepartmentID = E.DepartmentID
+    );
+
+20. 
 
 
 
