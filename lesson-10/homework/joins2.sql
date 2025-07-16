@@ -66,7 +66,18 @@
              C.LastName
     HAVING COUNT(O.OrderID) >= 1;
 
-13. 
+13. SELECT E.Name AS EmployeeName, D.DepartmentName
+    FROM Employees E
+    INNER JOIN Departments D ON E.DepartmentID = D.DepartmentID;
+
+14.
+
+15. SELECT Orders.OrderID, Orders.OrderDate, Customers.FirstName, Customers.LastName
+    FROM Orders
+    INNER JOIN Customers ON Orders.CustomerID = Orders.CustomerID
+    WHERE YEAR(Orders.Orderdate) = 2022;
+
+
 
 
 
