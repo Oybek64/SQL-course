@@ -32,7 +32,32 @@ ORDER BY
 
 8. select id, coalesce(ssn, passportid, itin) as first_non_null from person;
 
-9. 
+9. SELECT 
+  StudentID,
+  FullName,
+ LEFT(FullName, CHARINDEX(' ', FullName) - 1)  AS FirstName
+ 
+ SUBSTRING(
+    FullName,  (full string/column to extract from)
+    CHARINDEX(' ', FullName) + 1,  (this is where middle name Alexander begins)
+    CHARINDEX(' ', FullName, CHARINDEX(' ', FullName) + 1) - CHARINDEX(' ', FullName) - 1
+  ) AS MiddleName,
+ 
+ RIGHT(
+    FullName,
+    LEN(FullName) - CHARINDEX(' ', FullName, CHARINDEX(' ', FullName) + 1)
+  ) AS LastName
+
+FROM Students;
+
+10.    SELECT *
+FROM Orders
+WHERE DeliveryState = 'TX'
+  AND CustomerID IN (
+    SELECT DISTINCT CustomerID
+    FROM Orders
+    WHERE DeliveryState = 'CA'
+  ); 
 
 
 
