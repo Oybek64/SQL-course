@@ -59,6 +59,15 @@ WHERE DeliveryState = 'TX'
     WHERE DeliveryState = 'CA'
   ); 
 
+11. SELECT 
+    STRING_AGG(String, ' ') within group (order by sequencenumber) AS FullQuery
+FROM 
+    DMLTable;
+
+12. select * from employees
+where len(first_name+last_name) - len(replace(first_name+last_name, 'a', '')) >=3;
+
+13. 
 
 
 
