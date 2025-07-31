@@ -67,7 +67,20 @@ FROM
 12. select * from employees
 where len(first_name+last_name) - len(replace(first_name+last_name, 'a', '')) >=3;
 
-13. 
+13. select DEPARTMENT_ID, count(*) as total_count,
+sum(case
+      when datediff(year, HIRE_DATE, getdate()) > 3 then 1
+	  else 0
+	  end) as over_3_years, 
+cast(sum(case
+           when datediff(year, hire_date, getdate()) > 3 then 1
+	     else 0
+	     end) * 100 / count(*) AS DECIMAL(10,2)) as percentage_over_3years
+from employees
+group by department_id;
+
+14. 
+
 
 
 
