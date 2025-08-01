@@ -81,6 +81,43 @@ group by department_id;
 
 14. 
 
+15. select studentid,
+       fullname,
+	   grade,
+	   sum(grade) over (order by studentid) as running_total from students;
+
+16. 	SELECT *
+FROM Student
+WHERE Birthday IN (
+  SELECT Birthday
+  FROM Student
+  GROUP BY Birthday
+  HAVING COUNT(*) > 1
+);
+SELECT Birthday
+FROM Student
+GROUP BY Birthday
+HAVING COUNT(*) > 1
+
+17.SELECT
+    StudentName,
+    Birthday
+FROM
+    Student
+WHERE
+    Birthday IN (
+        SELECT
+            Birthday
+        FROM
+            Student
+        GROUP BY
+            Birthday
+        HAVING
+            COUNT(Birthday) > 1
+    )
+ORDER BY
+    Birthday, StudentName;
+
 
 
 
