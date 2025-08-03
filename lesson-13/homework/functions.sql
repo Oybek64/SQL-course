@@ -38,8 +38,8 @@ ORDER BY
  LEFT(FullName, CHARINDEX(' ', FullName) - 1)  AS FirstName
  
  SUBSTRING(
-    FullName,  (full string/column to extract from)
-    CHARINDEX(' ', FullName) + 1,  (this is where middle name Alexander begins)
+    FullName,
+    CHARINDEX(' ', FullName) + 1,
     CHARINDEX(' ', FullName, CHARINDEX(' ', FullName) + 1) - CHARINDEX(' ', FullName) - 1
   ) AS MiddleName,
  
