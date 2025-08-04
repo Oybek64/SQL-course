@@ -52,9 +52,13 @@ datediff(year, hire_date, getdate()) as years_worked from employees
 where datediff(year, hire_date, getdate()) > 10
 and datediff(year, hire_date, getdate()) < 15;
 
-10
+10. SELECT w1.Id
+FROM weather w1
+JOIN weather w2
+  ON w1.RecordDate = DATEADD(day, 1, w2.RecordDate)
+WHERE w1.Temperature > w2.Temperature;
 
-11.
+
 
 
 
