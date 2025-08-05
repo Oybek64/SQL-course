@@ -58,6 +58,11 @@ JOIN weather w2
   ON w1.RecordDate = DATEADD(day, 1, w2.RecordDate)
 WHERE w1.Temperature > w2.Temperature;
 
+11. SELECT Player_Id, MIN(Event_Date)
+FROM Activity
+GROUP BY Player_Id;
+
+12. 
 
 
 
